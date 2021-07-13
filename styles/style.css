@@ -1,0 +1,81 @@
+/* General resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-font: 'Roboto', sans-serif;
+  --primary-color: #01213f;
+  --secondary-color: #c48b98;
+}
+
+body {
+  font-family: var(--primary-font);
+  max-width: 100vw;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Mobile First: */
+.header-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  font-size: 1.375rem;
+}
+
+.logo-header {
+  width: 115px;
+  margin-bottom: 35px;
+}
+
+.nav-main {
+  height: 40%;
+}
+
+.nav-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 680px) {
+  .header-main {
+    height: 110px;
+    padding: 25px 50px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-header {
+    margin: 0;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    width: 360px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header-main {
+    padding: 25px 75px;
+  }
+}
