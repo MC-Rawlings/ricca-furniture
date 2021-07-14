@@ -55,6 +55,48 @@ a {
   text-transform: uppercase;
 }
 
+.banner {
+  height: 400px;
+  background: #01213f;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 50px 20px;
+}
+
+.banner-content {
+  border: solid 8px #fff;
+  height: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.banner-heading {
+  font-size: 2.8125rem;
+  font-weight: 500;
+}
+
+.banner-savings {
+  font-size: 2.375rem;
+  font-weight: 400;
+}
+
+.banner-cta {
+  font-family: var(--primary-font);
+  width: 245px;
+  height: 75px;
+  background: none;
+  color: #c48b98;
+  border: solid 4px#C48B98;
+  font-size: 1.375rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 35px;
+}
+
 .footer-main {
   display: flex;
   flex-direction: column;
@@ -116,6 +158,23 @@ a {
   .nav-list {
     flex-direction: row;
     width: 360px;
+  }
+
+  .banner {
+    height: 460px;
+  }
+
+  .banner-heading {
+    font-size: 4.5rem;
+    font-weight: 400;
+  }
+
+  .banner-savings {
+    font-size: 3.125rem;
+  }
+
+  .banner-cta {
+    margin-top: 50px;
   }
 
   .footer-main {
