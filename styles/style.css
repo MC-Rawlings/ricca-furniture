@@ -116,13 +116,13 @@ a {
   font-size: 2.375rem;
   font-weight: 400;
   text-transform: uppercase;
-  margin-bottom: 25px;
 }
 
 .product-details {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin: 25px 0 15px 0;
 }
 
 .old-price {
