@@ -101,7 +101,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 22px;
 }
 
 .product {
@@ -110,6 +110,11 @@ a {
   justify-content: center;
   align-items: center;
   max-width: 375px;
+  margin-bottom: 30px;
+}
+
+.product:last-of-type {
+  margin-bottom: 0;
 }
 
 .product-info {
@@ -277,6 +282,10 @@ a {
 @media only screen and (min-width: 800px) {
   .product {
     flex-direction: row;
+  }
+
+  .product:nth-child(even) {
+    flex-direction: row-reverse;
   }
 
   .product-img {
