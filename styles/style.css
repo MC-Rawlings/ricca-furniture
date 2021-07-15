@@ -118,6 +118,13 @@ a {
   text-transform: uppercase;
 }
 
+.product-description {
+  font-size: 1.375rem;
+  font-weight: 300;
+  line-height: 1.25;
+  display: none;
+}
+
 .product-details {
   display: flex;
   justify-content: space-between;
