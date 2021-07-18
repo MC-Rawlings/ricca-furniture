@@ -3,3 +3,14 @@ const products = fetch(
 )
   .then((response) => response.json())
   .then((data) => data);
+
+const render = () => {
+  const rootElement = document.querySelector('#root');
+  products.then((arr) => {
+    arr.forEach((element) => {
+      console.log(element);
+    });
+  });
+};
+
+render();
