@@ -41,8 +41,14 @@ const generateProductCard = (element) => {
   favoriteIcon.className = 'favorite-icon';
   favoriteIcon.addEventListener('click', () => {
     likedItems.addToLiked(element);
-    favoriteIcon.style.background =
-      'url(../styles/images/heart-active-icon.svg) no-repeat center';
+    render();
+  });
+  const isLiked = likedItems.getLiked();
+  isLiked.forEach((liked) => {
+    if (liked.title === element.title) {
+      favoriteIcon.style.background =
+        'url(../styles/images/heart-active-icon.svg) no-repeat center';
+    }
   });
   cartIcon.className = 'cart-icon';
   cartIcon.addEventListener('click', () => {
@@ -111,6 +117,7 @@ const likedItems = (() => {
   const addToLiked = (item) => {
     if (liked.find((liked) => liked.title === item.title) === undefined) {
       liked.push(item);
+      console.log(getLiked());
     }
   };
 
