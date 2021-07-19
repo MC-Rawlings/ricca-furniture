@@ -43,7 +43,6 @@ const generateProductCard = (element) => {
     likedItems.addToLiked(element);
     favoriteIcon.style.background =
       'url(../styles/images/heart-active-icon.svg) no-repeat center';
-    console.log(likedItems.getLiked());
   });
   cartIcon.className = 'cart-icon';
   cartIcon.addEventListener('click', () => {
@@ -110,7 +109,9 @@ const likedItems = (() => {
   const getLiked = () => liked;
 
   const addToLiked = (item) => {
-    liked.push(item);
+    if (liked.find((liked) => liked.title === item.title) === undefined) {
+      liked.push(item);
+    }
   };
 
   return {
