@@ -16,6 +16,7 @@
 body {
   font-family: var(--primary-font);
   max-width: 100vw;
+  overflow-x: hidden;
 }
 
 li {
@@ -122,6 +123,7 @@ a {
   border-radius: 0 0 5px 5px;
   padding: 25px 35px;
   width: 375px;
+  max-width: 100vw;
 }
 
 .product-img {
@@ -192,6 +194,19 @@ a {
   color: #fff;
   background: var(--secondary-color);
   border: none;
+}
+
+#cart-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  color: rgb(221, 221, 221);
+  width: 375px;
+  height: 50px;
+  background: var(--primary-color);
+  margin: 20px;
 }
 
 .footer-main {
@@ -325,6 +340,12 @@ a {
   }
 
   #more-products {
+    margin-top: 50px;
+  }
+
+  #cart-total {
+    font-size: 1.275rem;
+    width: 725px;
     margin-top: 50px;
   }
 }

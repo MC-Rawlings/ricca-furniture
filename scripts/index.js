@@ -1,4 +1,5 @@
 const rootElement = document.querySelector('#root');
+const cartTotal = document.querySelector('#cart-total');
 const products = fetch(
   'https://fedsa-project-1.herokuapp.com/project-1/products',
 )
@@ -39,6 +40,10 @@ const generateProductCard = (element) => {
   productActions.className = 'product-actions';
   favoriteIcon.className = 'favorite-icon';
   cartIcon.className = 'cart-icon';
+  cartIcon.addEventListener('click', () => {
+    shoppingCart.addToCart(element);
+    render();
+  });
 
   productHeading.appendChild(productName);
   productHeading.appendChild(productDescription);
@@ -56,7 +61,54 @@ const generateProductCard = (element) => {
   return listItem;
 };
 
+const generateTotalContainer = () => {
+  const totalInfo = document.createElement('p');
+  totalInfo.textContent = `The total cost of your products is: R${shoppingCart.getTotalCost()}`;
+
+  if (shoppingCart.getTotalCost() > 0) {
+    cartTotal.style.position = 'fixed';
+    cartTotal.style.bottom = '0';
+  }
+
+  return totalInfo;
+};
+
+const shoppingCart = (() => {
+  const items = [];
+
+  const getItems = () => items;
+
+  const addToCart = (item) => {
+    items.push(item);
+    getTotalCost();
+  };
+
+  const getTotalCost = () => {
+    let total = 0;
+    items.forEach((item) => {
+      total += item.discountedPrice;
+    });
+    return total.toFixed(2);
+  };
+
+  return {
+    getItems,
+    addToCart,
+    getTotalCost,
+  };
+})();
+
+const clearDOM = () => {
+  while (rootElement.firstChild) {
+    rootElement.removeChild(rootElement.lastChild);
+  }
+  while (cartTotal.firstChild) {
+    cartTotal.removeChild(cartTotal.firstChild);
+  }
+};
+
 const render = () => {
+  clearDOM();
   products.then((arr) => {
     const list = document.createElement('ul');
 
@@ -64,6 +116,7 @@ const render = () => {
       list.appendChild(generateProductCard(element));
     });
     rootElement.appendChild(list);
+    cartTotal.append(generateTotalContainer());
   });
 };
 
