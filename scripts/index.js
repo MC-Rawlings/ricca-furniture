@@ -64,11 +64,21 @@ const shoppingCart = (() => {
 
   const addToCart = (item) => {
     items.push(item);
+    getTotalCost();
+  };
+
+  const getTotalCost = () => {
+    let total = 0;
+    items.forEach((item) => {
+      total += item.discountedPrice;
+    });
+    return total.toFixed(2);
   };
 
   return {
     getItems,
     addToCart,
+    getTotalCost,
   };
 })();
 
