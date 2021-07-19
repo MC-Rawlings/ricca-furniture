@@ -47,7 +47,7 @@ const generateProductCard = (element) => {
   isLiked.forEach((liked) => {
     if (liked.title === element.title) {
       favoriteIcon.style.background =
-        'url(/styles/images/heart-active-icon.svg) no-repeat center';
+        'url(./styles/images/heart-active-icon.svg) no-repeat center';
     }
   });
   cartIcon.className = 'cart-icon';
