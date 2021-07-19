@@ -56,6 +56,16 @@ const generateProductCard = (element) => {
   return listItem;
 };
 
+const shoppingCart = (() => {
+  const items = [];
+
+  return {
+    items,
+  };
+})();
+
+console.log(shoppingCart.items);
+
 const render = () => {
   products.then((arr) => {
     const list = document.createElement('ul');
