@@ -39,6 +39,7 @@ const generateProductCard = (element) => {
   productActions.className = 'product-actions';
   favoriteIcon.className = 'favorite-icon';
   cartIcon.className = 'cart-icon';
+  cartIcon.addEventListener('click', () => shoppingCart.addToCart(element));
 
   productHeading.appendChild(productName);
   productHeading.appendChild(productDescription);
@@ -59,12 +60,19 @@ const generateProductCard = (element) => {
 const shoppingCart = (() => {
   const items = [];
 
+  const getItems = () => items;
+
+  const addToCart = (item) => {
+    items.push(item);
+  };
+
   return {
-    items,
+    getItems,
+    addToCart,
   };
 })();
 
-console.log(shoppingCart.items);
+console.log(shoppingCart.getItems());
 
 const render = () => {
   products.then((arr) => {
