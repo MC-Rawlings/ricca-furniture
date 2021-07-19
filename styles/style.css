@@ -86,6 +86,7 @@ a {
 }
 
 .banner-cta {
+  cursor: pointer;
   font-family: var(--primary-font);
   width: 245px;
   height: 75px;
