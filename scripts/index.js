@@ -72,6 +72,16 @@ const generateProductCard = (element) => {
   return listItem;
 };
 
+const loadMore = (() => {
+  let currentShowing = 3;
+  const button = document.querySelector('#more-products');
+
+  button.addEventListener('click', () => {
+    currentShowing += 3;
+    render(currentShowing);
+  });
+})();
+
 const generateTotalContainer = () => {
   const totalInfo = document.createElement('p');
   totalInfo.textContent = `The total cost of your products is: R${shoppingCart.getTotalCost()}`;
@@ -117,7 +127,6 @@ const likedItems = (() => {
   const addToLiked = (item) => {
     if (liked.find((liked) => liked.title === item.title) === undefined) {
       liked.push(item);
-      console.log(getLiked());
     }
   };
 
@@ -138,13 +147,15 @@ const clearDOM = () => {
   }
 };
 
-const render = () => {
+const render = (itemsToRender = 3) => {
   clearDOM();
   products.then((arr) => {
     const list = document.createElement('ul');
 
-    arr.forEach((element) => {
-      list.appendChild(generateProductCard(element));
+    arr.forEach((element, index) => {
+      if (index < itemsToRender) {
+        list.appendChild(generateProductCard(element));
+      }
     });
     rootElement.appendChild(list);
     cartTotal.append(generateTotalContainer());
