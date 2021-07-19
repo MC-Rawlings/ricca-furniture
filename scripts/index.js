@@ -39,6 +39,17 @@ const generateProductCard = (element) => {
   newPrice.textContent = `${element.discountedPrice}`;
   productActions.className = 'product-actions';
   favoriteIcon.className = 'favorite-icon';
+  favoriteIcon.addEventListener('click', () => {
+    likedItems.addToLiked(element);
+    render();
+  });
+  const isLiked = likedItems.getLiked();
+  isLiked.forEach((liked) => {
+    if (liked.title === element.title) {
+      favoriteIcon.style.background =
+        'url(../styles/images/heart-active-icon.svg) no-repeat center';
+    }
+  });
   cartIcon.className = 'cart-icon';
   cartIcon.addEventListener('click', () => {
     shoppingCart.addToCart(element);
@@ -97,6 +108,26 @@ const shoppingCart = (() => {
     getTotalCost,
   };
 })();
+
+const likedItems = (() => {
+  const liked = [];
+
+  const getLiked = () => liked;
+
+  const addToLiked = (item) => {
+    if (liked.find((liked) => liked.title === item.title) === undefined) {
+      liked.push(item);
+      console.log(getLiked());
+    }
+  };
+
+  return {
+    getLiked,
+    addToLiked,
+  };
+})();
+
+const styleLiked = () => {};
 
 const clearDOM = () => {
   while (rootElement.firstChild) {
